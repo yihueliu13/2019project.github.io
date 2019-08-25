@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>「一带一路」贸易支援</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-/scale=1, shrink-to-fit=no">
+	<meta name="企业外汇管理,企业外汇,风险对冲,KVB昆仑国际" content="马上预约，为企业外汇 “听诊把脉” | KVB昆仑国际环球资本">
+	<!-- font family css -->
+	<link rel="stylesheet" href="/cn/assets/css/belt-road/fonts.css?v=201803281720">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/cn/assets/css/belt-road/bootstrap.css?v=201803281720">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<!-- main css -->
+	<link rel="stylesheet" href="/cn/assets/css/belt-road/home.css?v=201803281720">
+</head>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<link rel="stylesheet" href="/cn/assets/css/belt-road/fonts.css?v=201803281720">
+<link rel="stylesheet" href="https://cdn.bootcss.com/hover.css/2.1.1/css/hover-min.css?v=201803281720">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css?v=201803281720">
+<link rel="stylesheet" href="/cn/assets/css/belt-road/bootstrap.css?v=201803281720">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link rel="stylesheet" href="/cn/assets/css/belt-road/home.css?v=201803281720">
+<script type="text/javascript" src="//media.kvbkunlun.com/js/jquery/1.11.1/jquery-1.11.1.min.js?v=201804300900"></script>
+<script type="text/javascript" src="//media.kvbkunlun.com/js/Fundation.js?v=201804300900"></script>
+<script type="text/javascript" src="//media.kvbkunlun.com/js/Data.js?v=201804300900"></script>
+<script type="text/javascript" src="//media.kvbkunlun.com/js/hi-base64.js?v=201804300900"></script>
+
+<script>
+	$(function () {
+		var $Continent = $("#Continent");
+		var list = new Array();
+
+		if ("Continent" == "Continent") {
+			var $list = $(".CurrencyInfo");
+
+			$list.each(function () {
+				var $this = $(this);
+				var Continent = $this.attr("Continent");
+
+				if (list.indexOf(Continent) == -1) {
+					list.push(Continent);
+				}
+			});
+
+			list.sort();
+			for (var i = 0; i < list.length; i++) {
+				var Continent = list[i];
+				var option = "<option value=\"{Continent}\">{Continent}</option>";
+
+				option = option.rp("{Continent}", Continent);
+				$Continent.append(option);
+			}
+		}
+
+		$Continent.change(SearchCurrency);
+	});
+
+	$(function () {
+		var $Keyword = $("#Keyword");
+		$Keyword.keyup(SearchCurrency);
+	});
+
+	function SearchCurrency() {
+		var Keyword = $$GV("Keyword").toLowerCase();
+		var Continent = $$GV("Continent").toLowerCase();
+		var $list = $(".CurrencyInfo");
+		var list = GetCurrencyList();
+
+		if (Continent != "")
+			list = FindObject(list, "Continent", Continent);
+
+		if (Keyword != "")
+			list = FindObjectInclude(list, "Keyword", Keyword);
+
+		$list.hide();
+		$list.each(function () {
+			var $this = $(this);
+			var Currency = $this.attr("Currency");
+			var l = FindObject(list, "Currency", Currency);
+
+			if (l.length == 0)
+				$this.hide();
+			else
+				$this.show();
+		});
+	}
+
+	function GetCurrencyList() {
+		var list = new Array();
+		var $list = $(".CurrencyInfo");
+
+		$list.each(function () {
+			var $this = $(this);
+			var info = {};
+
+			info["Seq"] = $this.attr("Seq");
+			info["Currency"] = $this.attr("Currency");
+			info["Area"] = $this.attr("Area");
+			info["Continent"] = $this.attr("Continent");
+			info["NameCN"] = $this.attr("NameCN");
+			info["NameEN"] = $this.attr("NameEN");
+			info["Keyword"] = $this.attr("Keyword");
+
+			list.push(info);
+		});
+
+		return (list);
+	}
+	function FindObjectInclude(list, IndexName, IndexValue) {
+		var result = new Array();
+
+		for (var i = 0; i < list.length; i++) {
+			var info = list[i];
+			var value = "" + info[IndexName];
+
+			if (value.toLowerCase().indexOf(IndexValue.toLowerCase()) != -1) {
+				result.push(info);
+			}
+		}
+
+		return (result);
+	}
+</script>
+
+<script>
+var isIE9OrBelow = function()
+    {
+       return /MSIE\s/.test(navigator.userAgent) && parseFloat(navigator.appVersion.split("MSIE")[1]) < 10;
+    }
+
+    if(isIE9OrBelow){
+        var dur = 20000;
+        var angle = 360;
+        var obj = $('.rotate-width');
+
+        AnimateRotate(obj, angle, dur);
+        var timerInterval = setInterval(function() {
+            AnimateRotate(obj, angle, dur);
+        },dur);
+    }
+
+    function AnimateRotate(obj, angle,duration) {
+        // caching the object for performance reasons
+        // we use a pseudo object for the animation
+        // (starts from `0` to `angle`), you can name it as you want
+        $({deg: 0}).animate({deg: angle}, {
+            duration: dur,
+            step: function(now) {
+                // in the step-callback (that is fired each step of the animation),
+                // you can use the `now` paramter which contains the current
+                // animation-position (`0` up to `angle`)
+                obj.css({
+                    transform: 'rotate(' + now + 'deg)'
+                });
+            }
+        });
+    }
+</script>
+
+<body>
+	<div class="GC-container">
+		<!-- header start -->
+		<div class="header">
+			<div class="header-kv">
+				<div class="header-kv-1">
+					<div class="header-kv-1-roll">
+						<img class="rotate-width" src="/cn/assets/img/belt-road/header_img_shape.png" alt="">
+					</div>
+				</div>
+				<div class="header-kv-2">
+					<div class="header-kv-2-solution">
+						<p class="scale-zoomIN">外汇风险对冲及资金调配</p>
+						<p class="scale-zoomOUT">多币种外汇交易与结算</p>
+						<p class="scale-zoomOUT">现金流管理</p>
+						<p class="scale-zoomOUT">境外多币种投资管理</p>
+						<p class="scale-zoomIN">基金投资</p>
+						<p class="scale-zoomIN">企业资产及财富管理</p>
+					</div>
+				</div>
+				<div class="header-kv-3">
+					<div class="header-kv-3-slogan">
+						<img src="/cn/assets/img/belt-road/header_kv_title.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<h1>129种国际交易货币</h1>
+				<p>2018年KVB昆仑国际环球资本荣幸成为<b>香港贸易发展局「一带一路」的金融服务商之一</b>，我们期望凭借自身在外汇领域的专业实力，帮助更多企业开拓这个具有高标准、高潜力的自由贸易区域网络。</p>
+			</div>
+			<div class="map">
+				<img class="map-desktop" src="/cn/assets/img/belt-road/map.png" alt="">
+				<img class="map-pad" src="/cn/assets/img/belt-road/img_map_pad.png" alt="">
+			</div>
+		</div>
+		<!-- content start -->
+		<div class="content">
+			<div class="content-inner">
+				<div class="content-box">
+					<div class="content-box-content">
+						<p class="tit">「一带一路」催生企业新机遇</p>
+						<p class="con">「一带一路」是中国政府于2013年提出并主导的跨国经济合作倡议，范围涵盖历史上丝绸之路和海上丝绸之路所连接的的中国、中亚、北亚、西亚、印度洋沿岸和地中海沿岸等国家和地区。「一带一路」倡议不但推动了中国与沿线国家的深度经贸合作，更为“走出去”企业带来新的发展机遇。</p>
+					</div>
+					<img class="content-img" src="/cn/assets/img/belt-road/photo_desktop_1.png" alt="">
+					<div class="clearfix"></div>
+				</div>
+				<div class="content-box content-box-XL">
+					<img class="content-img-LEFT" src="/cn/assets/img/belt-road/photo_desktop_2.png" alt="">
+					<div class="content-box-content-RIGHT">
+							<p class="tit">支持129种货币交易与结算</p>
+						<p class="con">KVB昆仑国际环球资本打破行业界限，在全球十余种主流货币基础上，更提供超过110种欧亚非国际货币的交易、结算与支付服务，其中覆盖了「一带一路」沿线所有国家的货币。KVB昆仑国际环球资本密切结合企业对外汇业务的需求，系统化解决了复杂账期、多币种结算及外汇风险对冲等难题。</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="content-box">
+					<div class="content-box-content">
+						<p class="tit">提供5天x24小时在线交易</p>
+						<p class="con">KVB昆仑国际环球资本致力于协助企业客户，建立全面的企业外汇和资金管理系统，帮助企业管理外汇风险、解决在资金管理过程中遇到的各类问题。eFX电子交易平台具备24小时全球结算与支付功能，在帮助企业提升运营效率的同时，更降低了人力成本和运营成本，确保企业利润留存。</p>
+					</div>
+					<img class="content-img" src="/cn/assets/img/belt-road/photo_desktop_3.png" alt="">
+					<div class="clearfix"></div>
+				</div>
+
+				<!-- mobile view -->
+				<div class="content-box-SM">
+						<img class="content-img-mobile" src="/cn/assets/img/belt-road/photo_mobile_1.png" alt="">
+						<div class="content-box-content">
+							<p class="tit">「一带一路」倡议是中国政府于2013年开始提出并推动的跨国经济合作</p>
+							<p class="con">该经济带范围涵盖历史上丝绸之路和海上丝绸之路行经的中国、中亚、北亚和西亚、印度洋沿岸、地中海沿岸的国家和地区。推动中国内地与世界各地沿线国家的贸易、资金及服务流动，为企业带来新机遇。</p>
+						</div>
+						<div class="clearfix"></div>
+				</div>
+				<div class="content-box-SM">
+					<img class="content-img-mobile" src="/cn/assets/img/belt-road/photo_mobile_2.png" alt="">
+					<div class="content-box-content">
+							<p class="tit">「提供了超过120种欧亚非国际货币交易、结算与支付</p>
+						<p class="con">打破传统，除了最普及的十多种货币结算，KVB昆仑国际环球资本还提供了超过120种欧亚非国际货币交易、结算与支付，覆盖了“一带一路”沿线国家，密切结合企业对外汇的需求，系统化解决复杂帐期、多币种付款及应收账的等难题。</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="content-box-SM">
+					<img class="content-img-mobile" src="/cn/assets/img/belt-road/photo_mobile_3.png" alt="">
+					<div class="content-box-content">
+						<p class="tit">24小时电子交易平台的全球结算和支付</p>
+						<p class="con">我们一直致力协助企业客户，建立企业外汇和资金管理系统，帮助企业降低外汇风险，解决外汇和金融资金管理遇到的问题。24小时电子交易平台的全球结算和支付，不仅提升了业务运营效率，并降低人力成本和运营成本，以确保企业利润。</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!-- table start -->
+		<div class="table-content">
+			<div class="devider"></div>
+			<div class="table-search">
+				<div class="table-search-tit">
+					<p>129 种货币列表</p>
+				</div>
+				<div class="table-search-filter">
+					<form class="form-inline">
+						<label for="inputEmail3" class="fas fa-search fa-2x fa-searc-color col-md-2"></label>
+						<div class="form-group col-md-5 col-md-5-style">
+							<input type="text" class="form-control form-style input-lg" placeholder="Search" aria-label="Search" id="Keyword" name="Keyword">
+						</div>
+						<div class="form-group col-md-5 col-md-5-style">
+							<select class="form-control input-lg form-style" id="Continent" name="Continent">
+								<option value="">(ALL)</option>
+							<option value="东北亚">东北亚</option><option value="东南亚">东南亚</option><option value="东欧">东欧</option><option value="东非">东非</option><option value="中亚">中亚</option><option value="中欧">中欧</option><option value="中美洲">中美洲</option><option value="中非">中非</option><option value="北欧">北欧</option><option value="北美洲">北美洲</option><option value="北非">北非</option><option value="南亚">南亚</option><option value="南欧">南欧</option><option value="南美洲">南美洲</option><option value="南非">南非</option><option value="大洋洲">大洋洲</option><option value="欧洲">欧洲</option><option value="西亚">西亚</option><option value="西印度群岛">西印度群岛</option><option value="西欧">西欧</option><option value="西非">西非</option></select>
+						</div>
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+				<div class="table-list">
+					<div class="table-responsive-xl">
+						<table class="table table-head">
+							<thead>
+								<tr>
+									<th scope="col" class="th-style">货币单位</th>
+									<th scope="col" class="th-style">所属国家/地区</th>
+									<th scope="col" class="th-style">货币名称中文</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-responsive-xl table-list-inner custom-table-width col">
+						<table class="table table-hover table-style">
+							<tbody>
+								<tr>
+									<td class="td-style">CNY</td>
+									<td class="td-style">中国</td>
+									<td class="td-style">元</td>
+								</tr>
+								<tr>
+									<td class="td-style">HKD</td>
+									<td class="td-style">香港</td>
+									<td class="td-style">港元</td>
+								</tr>
+								<tr>
+									<td class="td-style">JPY</td>
+									<td class="td-style">日本</td>
+									<td class="td-style">日元</td>
+								</tr>
+								<tr>
+									<td class="td-style">KRW</td>
+									<td class="td-style">韩国</td>
+									<td class="td-style">韩元</td>
+								</tr>
+								<tr>
+									<td class="td-style">MNT</td>
+									<td class="td-style">蒙古</td>
+									<td class="td-style">图格里克</td>
+								</tr>
+								<tr>
+									<td class="td-style">MOP</td>
+									<td class="td-style">澳门</td>
+									<td class="td-style">澳门元</td>
+								</tr>
+								<tr>
+									<td class="td-style">RUB</td>
+									<td class="td-style">俄罗斯</td>
+									<td class="td-style">卢布</td>
+								</tr>
+								<tr>
+									<td class="td-style">TWD</td>
+									<td class="td-style">台湾</td>
+									<td class="td-style">新台币</td>
+								</tr>
+								<tr>
+									<td class="td-style">MOP</td>
+									<td class="td-style">澳门</td>
+									<td class="td-style">澳门元</td>
+								</tr>
+								<tr>
+									<td class="td-style">RUB</td>
+									<td class="td-style">俄罗斯</td>
+									<td class="td-style">卢布</td>
+								</tr>
+								<tr>
+									<td class="td-style">TWD</td>
+									<td class="td-style">台湾</td>
+									<td class="td-style">新台币</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+		</div>
+		<!-- solution start -->
+		<div class="solution">
+			<div class="inner-solution">
+				<div class="solution-content">
+					<div class="solution-content-top">
+						<img src="/cn/assets/img/belt-road/icon_main_solution.png" alt="">
+						<p>解决方案</p>
+						<p>KVB昆仑国际环球资本通过自主研发的金融科技平台，打造出专业的企业外汇及司库管理系统，为欲借「一带一路」东风走出去的企业，提供多项金融科技解决方案。其中包括：</p>
+					</div>
+					<div class="solution-content-bottom">
+						<div class="solution-box">
+							<div class="solution-box-inner">
+								<img src="/cn/assets/img/belt-road/icon_solution_01.png" alt="">
+								<p>多币种</p>
+								<p>外汇交易与结算</p>
+							</div>
+						</div>
+						<div class="solution-box">
+							<div class="solution-box-inner">
+								<img src="/cn/assets/img/belt-road/icon_solution_02.png" alt="">
+								<p>外汇风险</p>
+								<p>对冲及资金调配</p>
+							</div>
+						</div>
+						<div class="solution-box">
+							<div class="solution-box-inner">
+								<img src="/cn/assets/img/belt-road/icon_solution_03.png" alt="">
+								<p>&nbsp;</p>
+								<p>现金流管理</p>
+							</div>
+						</div>
+						<div class="solution-box">
+							<div class="solution-box-inner">
+								<img src="/cn/assets/img/belt-road/icon_solution_04.png" alt="">
+								<p>境外多币种</p>
+								<p>投资管理</p>
+							</div>
+						</div>
+						<div class="solution-box">
+							<div class="solution-box-inner">
+								<img src="/cn/assets/img/belt-road/icon_solution_05.png" alt="">
+								<p>&nbsp;</p>
+								<p>基金投资</p>
+							</div>
+						</div>
+						<div class="solution-box">
+							<div class="solution-box-inner">
+								<img src="/cn/assets/img/belt-road/icon_solution_06.png" alt="">
+								<p>企业资产</p>
+								<p>及财富管理</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- case study start -->
+		<div class="case-study">
+			<div class="inner-caseStudy">
+				<div class="caseStudy-content">
+
+					<div class="solution-content-top caseStudy-top">
+						<p>大中华区跨境出口企业案例分析</p>
+						<p>KVB昆仑国际拥有129种货币结算能力，能够充分利用专业优势，帮助企业规避外汇风险，保障营收利润。</p>
+					</div>
+					<div class="caseStudy-medium-wording">
+						<p>【案例背景】中国某大型出口电商企业，主要透过阿里巴巴等跨国电商平台，向国外出售高质量运动服装及配件，每月营收可获得百万美元外汇。</p>
+					</div>
+
+					<div class="caseStudy-medium">
+						<div class="caseStudy-medium-IG">
+							<div class="IG-TOP">
+
+								<div class="IG-TOP-BOX">
+									<div class="inner-TOP-BOX">
+										<img src="cn/assets/img/belt-road/icon_infographic_01.png" alt="">
+										<p>180万美元</p>
+										<p>国际买家向电商企业（卖家）采购180万美元商品</p>
+										<!-- <p>采购180万美元商品</p> -->
+									</div>
+								</div>
+								<div class="IG-TOP-BOX">
+									<div class="inner-TOP-BOX">
+										<img src="cn/assets/img/belt-road/icon_infographic_02.png" alt="">
+										<p>账期1周至1个月</p>
+										<p>卖家需等到买家签收货物后，才能收到货品的款项</p>
+										<!-- <p>才能收到货品的款项</p> -->
+									</div>
+								</div>
+								<div class="IG-TOP-BOX">
+									<div class="inner-TOP-BOX">
+										<img src="cn/assets/img/belt-road/icon_infographic_03.png" alt="">
+										<p>KVB远期外汇合约</p>
+										<p>按8月1日汇率6.7265结算，避免汇率波动造成损失</p>
+										<!-- <p>避免汇率波动造成损失</p> -->
+
+									</div>
+								</div>
+							</div>
+
+							<div class="IG-BOTTOM">
+								<img src="cn/assets/img/belt-road/img_infographic.png" alt="">
+								<img src="cn/assets/img/belt-road/img_infographic_pad.png" alt="">
+								<img src="cn/assets/img/belt-road/img_infographic_mobile.png" alt="">
+							</div>
+
+						</div>
+					</div>
+
+					<div class="caseStudy-bottom">
+						<div class="caseStudy-bottom-L">
+							<div class="caseStudy-bottom-L-top">
+								<img src="cn/assets/img/belt-road/img_contract.png" alt="">
+							</div>
+
+							<div class="caseStudy-bottom-L-bottom">
+								<p>该企业按照KVB昆仑国际的建议进行了操作，在8月1日锁定汇率。时间来到9月8日时，美元兑人民币价格已经下降至6.4433，
+									该企业采取的<span>避险措施成功挽救了总计约50万人民币的汇兑风险损失。</span>在美元处于贬值大趋势的2017年，该企业每次与买家签约后，
+									就会把美元兑人民币的汇率尽早锁定，避免遭受不必要的损失也为公司创下了空前的盈利纪录。
+								</p>
+							</div>
+						</div>
+						<div class="caseStudy-bottom-R">
+							<img src="cn/assets/img/belt-road/img_deal.png" alt="">
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- contact us start -->
+		<div class="contact">
+			<div class="inner-contact">
+				<div class="main-contact">
+					<div class="triangle"></div>
+					<div class="inner-contact-con">
+						<p>您是否有任何问题？</p>
+						<p>我们竭诚为您服务！若对我们的产品或服务感兴趣请留言，我们将会尽快与您联络。</p>
+						<a href="https://test.kvbgc.com/cn/contactus/" class="bttn">联系我们</a>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+</html>
