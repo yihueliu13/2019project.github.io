@@ -49,7 +49,7 @@ a, a:hover{
 /* headr start */
 .header{
   width: 100%;
-  background-image: url("../../img/belt-road/header_kvbg.png");
+  background-image: url("../img/header_kvbg.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center 0%;
@@ -728,7 +728,7 @@ p.scale-zoomOUT{
  @media (max-width: 768px) {
   .header {
     width: 100%;
-    background-image: url("../../img/belt-road/header_kvbg_pad.png");
+    background-image: url("../img/header_kvbg_pad.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center 0%;
@@ -1854,7 +1854,7 @@ tbody td:first-child {
 /* solution start */
 .solution{
   width: 100%;
-  background-image: url("../../img/belt-road/solution_bg.png");
+  background-image: url("../img/solution_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100%;
@@ -1870,7 +1870,7 @@ tbody td:first-child {
 .solution-content{
   margin-top: 5%;
   width: 100%;
-  background-image: url("../../img/belt-road/solution_bg_oval.png");
+  background-image: url("../img/solution_bg_oval.png");
   background-repeat: no-repeat;
   background-size: 100%;
   /* min-height: 965px; */
@@ -2275,7 +2275,7 @@ tbody td:first-child {
 }
 .inner-contact{
   width: 100%;
-  background-image: url("../../img/belt-road/img_contact_bg.png");
+  background-image: url("../img/img_contact_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   /* position: absolute;
