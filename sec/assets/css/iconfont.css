@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'kvbsec';
+  src: url('fonts/kvbsec.eot?ofgfp2');
+  src: url('fonts/kvbsec.eot?ofgfp2#iefix') format('embedded-opentype'),
+    url('fonts/kvbsec.ttf?ofgfp2') format('truetype'),
+    url('fonts/kvbsec.woff?ofgfp2') format('woff'),
+    url('fonts/kvbsec.svg?ofgfp2#kvbsec') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'kvbsec', "Noto Sans SC",
+  "Noto Sans TC",
+  "Roboto Condensed",
+  "Roboto",
+  Arial,
+  Helvetica,
+  sans-serif,
+  微軟正黑體,
+  "Segoe UI",
+  "Helvetica Neue",
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon_arrow:after {
+  content: "\e900";
+}
+
+/* .icon-icon_arrow:before {
+  content: "\e900";
+} */
+.icon-icon_location:before {
+  content: "\e901";
+}
+
+.icon-icon_quotation:before {
+  content: "\e902";
+}
+
+.icon-kvb_logo_standard .path1:before {
+  content: "\e903";
+  color: rgb(0, 0, 0);
+}
+
+.icon-kvb_logo_standard .path2:before {
+  content: "\e904";
+  margin-left: -5em;
+  color: rgb(242, 151, 58);
+}
+
+.icon-kvb_logo_standard .path3:before {
+  content: "\e905";
+  margin-left: -5em;
+  color: rgb(0, 95, 162);
+}
+
+.icon-kvb_logo:before {
+  content: "\e90a";
+}
+/*# sourceMappingURL=iconfont.css.map */
